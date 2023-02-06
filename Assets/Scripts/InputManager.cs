@@ -5,10 +5,13 @@ using UnityEngine;
 public class InputManager : MonoBehaviour
 {
     PlayerControls playerControls;
+    PlayerLocomotion playerLocomotion;
 
     public Vector2 movementInput;
     public float verticalInput;
     public float horizontalInput;
+
+    public bool jumpInput;
 
     private void OnEnable()
     {
@@ -17,6 +20,8 @@ public class InputManager : MonoBehaviour
             playerControls = new PlayerControls();
 
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
+
+            playerControls.PlayerActions.Jump.performed += i => jumpInput = true;
         }
 
         playerControls.Enable();
@@ -30,7 +35,7 @@ public class InputManager : MonoBehaviour
     public void HandleAllInputs()
     {
         HandleMovementInput();
-        //HandleJumpInput();
+        HandleJumpInput();
         //HandleActionInput();
     }
 
@@ -38,5 +43,13 @@ public class InputManager : MonoBehaviour
     {
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
+    }
+
+    private void HandleJumpInput()
+    {
+        if (jumpInput)
+        {
+            jumpInput = false;
+        }
     }
 }
