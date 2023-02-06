@@ -11,7 +11,7 @@ public class InputManager : MonoBehaviour
     public float verticalInput;
     public float horizontalInput;
 
-    public bool jumpInput;
+    //public bool jumpInput;
 
     private void OnEnable()
     {
@@ -21,7 +21,7 @@ public class InputManager : MonoBehaviour
 
             playerControls.PlayerMovement.Movement.performed += i => movementInput = i.ReadValue<Vector2>();
 
-            playerControls.PlayerActions.Jump.performed += i => jumpInput = true;
+            //playerControls.PlayerActions.Jump.performed += i => jumpInput = true;
         }
 
         playerControls.Enable();
@@ -35,7 +35,7 @@ public class InputManager : MonoBehaviour
     public void HandleAllInputs()
     {
         HandleMovementInput();
-        HandleJumpInput();
+        //HandleJumpInput();
         //HandleActionInput();
     }
 
@@ -45,11 +45,11 @@ public class InputManager : MonoBehaviour
         horizontalInput = movementInput.x;
     }
 
-    private void HandleJumpInput()
+    /*private void HandleJumpInput()
     {
         if (jumpInput)
         {
             jumpInput = false;
         }
-    }
+    }*/
 }

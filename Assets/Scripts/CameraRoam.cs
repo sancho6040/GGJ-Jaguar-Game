@@ -10,7 +10,7 @@ public class CameraRoam : MonoBehaviour
 
     void Update()
     {
-        Vector3 newPos = new Vector3(target.position.x, target.position.y + 15f, target.position.z -15f);
+        Vector3 newPos = new Vector3(target.position.x, target.position.y + 40f, target.position.z -60f);
         transform.position = Vector3.Slerp(transform.position, newPos, Time.deltaTime);
     }
 }

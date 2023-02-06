@@ -13,15 +13,15 @@ public class PlayerLocomotion : MonoBehaviour
 
     public float movementSpeed = 7;
     public float rotationSpeed = 15;
-    Vector3 customV3 = new Vector3(5.0f, 0.0f, 0.0f);
-    Vector3 customV32 = new Vector3(5.0f, 0.0f, 0.0f);
+    //Vector3 customV3 = new Vector3(5.0f, 0.0f, 0.0f);
+    //Vector3 customV32 = new Vector3(5.0f, 0.0f, 0.0f);
 
-    [Header("Movement Flags")]
-    public bool isJumping;
+    /*[Header("Movement Flags")]
+    public bool isJumping;*/
 
-    [Header("Jump Speeds")]
+    /*[Header("Jump Speeds")]
     public float jumpingHeight = 3;
-    public float gravityIntensity = -15;
+    public float gravityIntensity = -15;*/
 
     private void Awake()
     {
@@ -34,7 +34,8 @@ public class PlayerLocomotion : MonoBehaviour
     {
         HandleMovement();
         HandleRotation();
-        HandleJumping();
+        //HandleJumping();
+        Physics.gravity = new Vector3(0, -1000F, 0);
     }
 
     private void HandleMovement()
@@ -43,7 +44,7 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection = moveDirection + cameraObject.right * inputManager.horizontalInput;
         moveDirection.Normalize();
         moveDirection.y = 0;
-        moveDirection = moveDirection * 15;
+        moveDirection = moveDirection * 60;
 
         Vector3 movementVelocity = moveDirection;
         playerRigidBody.velocity = movementVelocity;
@@ -63,7 +64,7 @@ public class PlayerLocomotion : MonoBehaviour
         transform.rotation = playerRotation;
     }
 
-    public void HandleJumping()
+    /*public void HandleJumping()
     {
         isJumping = inputManager.jumpInput;
         if (isJumping)
@@ -78,5 +79,5 @@ public class PlayerLocomotion : MonoBehaviour
             playerVelocity2.y = jumpingVelocity2;
             playerRigidBody.velocity = playerVelocity2;
 
-    }
+    }*/
 }
