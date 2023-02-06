@@ -17,7 +17,8 @@ public class CollectableFood : MonoBehaviour
         {
             Debug.Log("Ñam");
             apples = apples + 1;
-            other.gameObject.SetActive(false);
+            //other.gameObject.SetActive(false);
+            Destroy(other.gameObject);
         }
     }
 

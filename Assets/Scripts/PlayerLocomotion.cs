@@ -43,7 +43,7 @@ public class PlayerLocomotion : MonoBehaviour
         moveDirection = moveDirection + cameraObject.right * inputManager.horizontalInput;
         moveDirection.Normalize();
         moveDirection.y = 0;
-        moveDirection = moveDirection * movementSpeed;
+        moveDirection = moveDirection * 15;
 
         Vector3 movementVelocity = moveDirection;
         playerRigidBody.velocity = movementVelocity;
